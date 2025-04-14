@@ -8,10 +8,10 @@ LOG_FILE="/root/omni.log"
 
 cd /root
 
-if [ ! -f "$OMNI_BIN" ]; then
-  wget -q "https://github.com/siderolabs/omni/releases/download/v${OMNI_VERSION}/omni-${OMNI_TARGET_PLATFORM}-${OMNI_ARCH}" -O "$OMNI_BIN"
-  chmod +x "$OMNI_BIN"
-fi
+rm -rf $OMNI_BIN
+
+wget -q "https://github.com/siderolabs/omni/releases/download/v${OMNI_VERSION}/omni-${OMNI_TARGET_PLATFORM}-${OMNI_ARCH}" -O "$OMNI_BIN"
+chmod +x "$OMNI_BIN"
 
 mkdir -p /root/omnictl
 

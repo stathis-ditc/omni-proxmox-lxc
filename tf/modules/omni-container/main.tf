@@ -125,6 +125,7 @@ resource "null_resource" "update_proxmox_container_config" {
 resource "null_resource" "launch_omni" {
   triggers = {
     script = filesha256(local.launch_omni_script)
+    omni_version = var.omni_config.version
   }
 
   provisioner "file" {
@@ -142,7 +143,7 @@ resource "null_resource" "launch_omni" {
   provisioner "remote-exec" {
     inline = [
       "chmod +x /root/launch-omni.sh",
-      "export OMNI_VERSION=${var.omni_config.version}",
+      "export OMNI_VERSION=${self.triggers.omni_version}",
       "export OMNI_TARGET_PLATFORM=${var.omni_config.target_platform}",
       "export OMNI_ARCH=${var.omni_config.arch}",
       "export OMNI_NAME=${var.omni_config.name}",
