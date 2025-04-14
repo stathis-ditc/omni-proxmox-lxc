@@ -1,0 +1,8 @@
+.idea
+.terraform
+terraform.tfstate
+terraform.tfstate.backup
+.terraform.lock.hcl
+chain.crt
+tls.crt
+tls.key
