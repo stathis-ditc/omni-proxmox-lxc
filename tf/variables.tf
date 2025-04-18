@@ -17,6 +17,11 @@ variable "proxmox_ip" {
   description = "The IP of the proxmox node where LXC is hosted"
 }
 
+variable "proxmox_root_password" {
+  type        = string
+  description = "The password of the proxmox's root user"
+}
+
 variable "proxmox_api_token" {
   type        = string
   description = "The generated api token to access Proxmox "

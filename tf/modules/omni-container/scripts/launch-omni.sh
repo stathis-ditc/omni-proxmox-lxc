@@ -19,9 +19,9 @@ echo "Run Omni in the background, detach from SSH session"
 nohup  "$OMNI_BIN" \
   --account-id=$(uuidgen) \
   --name=onprem-omni \
-  --cert=${CERT_DIR}/tls.crt \
+  --cert=${CERT_DIR}/chain.crt \
   --key=${CERT_DIR}/tls.key \
-  --machine-api-cert=${CERT_DIR}/tls.crt \
+  --machine-api-cert=${CERT_DIR}/chain.crt \
   --machine-api-key=${CERT_DIR}/tls.key  \
   --private-key-source=file://${OMNI_ASC} \
   --event-sink-port=8091 \

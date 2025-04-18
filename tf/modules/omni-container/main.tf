@@ -113,9 +113,10 @@ resource "null_resource" "update_proxmox_container_config" {
     script = local.update_pm_script_path
 
     connection {
-      type = "ssh"
-      user = "root"
-      host = var.proxmox_ip
+      type     = "ssh"
+      user     = "root"
+      host     = var.proxmox_ip
+      password = var.proxmox_root_password ## TODO: do not use password
     }
   }
 
@@ -124,7 +125,7 @@ resource "null_resource" "update_proxmox_container_config" {
 
 resource "null_resource" "launch_omni" {
   triggers = {
-    script = filesha256(local.launch_omni_script)
+    script       = filesha256(local.launch_omni_script)
     omni_version = var.omni_config.version
   }
 

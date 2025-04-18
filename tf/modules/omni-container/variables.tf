@@ -15,6 +15,9 @@ variable "omni_config" {
 variable "proxmox_ip" {
 }
 
+variable "proxmox_root_password" {
+}
+
 variable "proxmox_api_token" {
 }
 
